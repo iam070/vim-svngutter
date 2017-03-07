@@ -98,7 +98,7 @@ function! s:command_in_directory_of_current_file(cmd)
 endfunction
 
 function! s:is_in_a_svn_repo()
-  let cmd = 'svn log' . s:discard_stdout_and_stderr()
+  let cmd = 'svn log -l 1' . s:discard_stdout_and_stderr()
   call system(s:command_in_directory_of_current_file(cmd))
   return !v:shell_error
 endfunction
